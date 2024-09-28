@@ -27,7 +27,6 @@ run_script_command = """
 cd /opt/airflow/project-code/update-public-ip-on-duck-dns
 source /opt/airflow/project-code/update-public-ip-on-duck-dns/.venv/bin/activate
 python /opt/airflow/project-code/update-public-ip-on-duck-dns/main.py
-deactivate
 """
 
 # Define the task
