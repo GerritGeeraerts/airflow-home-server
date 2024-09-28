@@ -17,7 +17,7 @@ dag = DAG(
     'update_public_ip_on_duck_dns',
     default_args=default_args,
     description='A simple DAG to update public IP on Duck DNS',
-    schedule_interval=timedelta(days=1),
+    schedule_interval=timedelta(hours=1),
     start_date=datetime(2023, 1, 1),  # replace with your start date
     catchup=False,
 )
