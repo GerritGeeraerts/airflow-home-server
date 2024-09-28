@@ -9,3 +9,8 @@ run the the task initialize_database manualy, from this point on the other tasks
 
 in http://localhost:5050 you can login with admin@example.com admin
 here you can vew the databases that are being filled by the dags
+
+# Set AIRFLOW_UID
+```bash
+echo -e "AIRFLOW_UID=$(id -u)" > .env
+```

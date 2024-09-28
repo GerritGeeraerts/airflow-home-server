@@ -79,6 +79,7 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
+    - ${HOME}/airflow-volume-project-code:/opt/airflow/project-code
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -86,7 +87,6 @@ x-airflow-common:
       condition: service_healthy
     postgres:
       condition: service_healthy
-
 services:
   postgres:
     image: postgres:13
