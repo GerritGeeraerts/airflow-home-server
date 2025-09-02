@@ -80,7 +80,10 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
     - ${HOME}/airflow-volume-project-code:/opt/airflow/project-code
+    - /var/run/docker.sock:/var/run/docker.sock # mount docker from the host inside the airflow docker.
   user: "${AIRFLOW_UID:-50000}:0"
+  group_add:
+    - "999"
   depends_on:
     &airflow-common-depends-on
     redis:
@@ -119,7 +122,7 @@ services:
     <<: *airflow-common
     command: webserver
     ports:
-      - "8080:8080"
+      - "192.168.0.228:80:8080"
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 30s
